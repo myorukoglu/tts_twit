@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 10.times do
-  user = User.create(:username => Faker::Creature::Cat.name, :email => Faker::Internet.email, :password => "asdfASDF1")
-end
-User.all.each do |user|
-  4.times do
-    user.tweets.create(:message => Faker::TvShows::DrWho.quote)
+  user = User.create(:username => Faker::Creature::Cat.unique.name, :email => Faker::Internet.email, :password => "asdfASDF1")
+  2.times do
+    tweet = Tweet.create(:message =>  "#{Faker::TvShows::DrWho.quote} ##{Faker::Creature::Cat.name}", :user_id => user.id)
+    tweet.add_tags
   end
-end 
+end
