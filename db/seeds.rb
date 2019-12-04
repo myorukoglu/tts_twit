@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-  user = User.create(:username => Faker::Creature::Cat.unique.name, :email => Faker::Internet.email, :password => "asdfASDF1")
+  user = User.create(:username => Faker::Creature::Cat.unique.name, :email => Faker::Internet.unique.email, :password => "asdfASDF1")
   2.times do
     tweet = Tweet.create(:message =>  "#{Faker::TvShows::DrWho.quote} ##{Faker::Creature::Cat.name}", :user_id => user.id)
     tweet.add_tags
