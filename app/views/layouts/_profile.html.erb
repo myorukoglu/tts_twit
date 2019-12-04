@@ -1,0 +1,23 @@
+<div class="card" style="margin:5px; width: 18em">
+  <%= image_tag "class1.jpg",  :class => "card-img-top"  %>
+  <div class="card-body">
+      <h5 class="card-title">@<%= user.username %>'s Profile & Tweets</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: <%= user.name %></li>
+      <li class="list-group-item">Location: <%= user.location %></li>
+      <li class="list-group-item">Bio: <%= user.bio %></li>
+  </ul>
+  <div class="card-body">
+      <% if current_user.id != user.id %>
+      <% if current_user.following.include?(user.id) %>
+          <%= link_to "Unfollow", unfollow_path(id: user.id), class: "btn btn-danger", id: "unfollow_btn" %>
+      <% else %>
+          <% if current_user.id != user.id %>
+              <%= link_to "Follow", now_following_path(id: user.id), class: "btn btn-primary" %>
+          <% end %>
+      <% end %>
+      <% end %>
+      <%= link_to "See Tweets", show_user_path(id: user.id), class: "btn btn-info"%>
+  </div>
+  </div>

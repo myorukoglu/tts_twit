@@ -13,6 +13,10 @@ class EpicenterController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def all_users
+    @users = User.where("ID !=#{current_user.id}")
+  end
+
   def now_following
     current_user.following.push(params[:id].to_i)
     current_user.save

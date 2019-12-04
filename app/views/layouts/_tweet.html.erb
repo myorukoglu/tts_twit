@@ -1,0 +1,11 @@
+<div class="card" style="margin: 10px;">
+  <div class="card-header">
+    <%= tweet.user.username %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= tweet.message.html_safe %></p>
+      <footer class="blockquote-footer"><%= time_ago_in_words(tweet.created_at) %></footer>
+    </blockquote>
+  </div>
+</div>

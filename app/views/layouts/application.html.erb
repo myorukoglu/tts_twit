@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>TtsTwit</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,17 +11,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="padding: 2em">
+  <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
+  <a class="navbar-brand" href="#">TTS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
         <a class="nav-link" href="/">My Feed</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="<%= tweets_path %>">All Tweets</a>
       </li>
-    <% if user_signed_in? %>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= all_users_path %>">All Users</a>
+      </li>
+      <% if user_signed_in? %>
       <li class="nav-item">
         <%# <a class="nav-link" >My Tweets</a> %>
       </li>

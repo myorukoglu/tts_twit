@@ -1,11 +1,8 @@
 <h1>@<%= current_user.username %>'s Twitter Feed</h1>
-<p>Here is what your "friends" are saying:</p>
+<%= render partial: 'layouts/profile', locals: {user: current_user} %>
 
-<div>
+<div class="contain" style="padding:10px">
     <% @following_tweets.each do |tweet| %>
-        <div>
-	    <p>@<%= tweet.user.username %></p>
-	    <p><%= tweet.message.html_safe %></p>
-	</div>
+        <%= render partial: 'layouts/tweet', locals: {tweet: tweet} %>	
     <% end %>
 </div>

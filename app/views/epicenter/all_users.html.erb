@@ -1,0 +1,9 @@
+<div class="container-fluid" style="display: flex; flex-wrap: wrap;justify-content: center;}">
+    
+    <% @users.each do |db_user| %>
+        <%= render partial: 'layouts/profile', locals: {user: db_user} %>
+    <% end %>
+  </div>
+</div>
+
+
