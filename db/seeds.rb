@@ -8,7 +8,7 @@
 
 10.times do
   user = User.create(:username => Faker::Creature::Cat.unique.name, :email => Faker::Internet.unique.email, :password => "asdfASDF1")
-  2.times do
+  20.times do
     tweet = Tweet.create(:message =>  "#{Faker::TvShows::DrWho.quote} ##{Faker::Creature::Cat.name}", :user_id => user.id)
     tweet.add_tags
   end
