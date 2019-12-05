@@ -11,6 +11,7 @@ class Tweet < ApplicationRecord
   def add_tags
     message_arr = Array.new  #holds each word of our tweet
 
+    #fill the array with words from the tweet
     message_arr = message.split(" ")
 
     message_arr.each_with_index do |word, index|
