@@ -2,7 +2,7 @@
 <%= render partial: 'layouts/profile', locals: {user: current_user} %>
 
 <div class="contain" style="padding:10px">
-    <% @following_tweets.each do |tweet| %>
-        <%= render partial: 'layouts/tweet', locals: {tweet: tweet} %>	
+    <% @following_tweets.each do |cat_in_the_hat| %>
+        <%= render partial: 'layouts/tweet', locals: {tweet: cat_in_the_hat} %>	
     <% end %>
 </div>

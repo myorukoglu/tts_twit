@@ -15,7 +15,7 @@
     :email => Faker::Internet.unique.email, 
     :password => "asdfASDF1")
   10.times do
-    message = "##{Faker::Creature::Cat.name} #{Faker::TvShows::DrWho.quote}"
+    message = "##{Faker::Movies::StarWars.planet} #{Faker::TvShows::DrWho.quote}"
     tweet = Tweet.create(:message => message[0..279], :user_id => user.id)
     tweet.add_tags
   end

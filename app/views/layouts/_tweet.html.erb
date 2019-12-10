@@ -5,7 +5,12 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= tweet.message.html_safe %></p>
-      <footer class="blockquote-footer"><%= time_ago_in_words(tweet.created_at) %></footer>
+      <footer class="blockquote-footer">
+      <%= time_ago_in_words(tweet.created_at) %>
+      <%= time_ago_in_words(tweet.created_at) if Time.now - tweet.created_at < 86400 %> 
+      <%= tweet.created_at.strftime('%b%e') if Time.now - tweet.created_at > 86400 %> 
+      
+      </footer>
     </blockquote>
   </div>
 </div>

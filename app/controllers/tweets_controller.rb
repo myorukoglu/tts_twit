@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
     
     @tweet = Tweet.create(tweet_params)
     
-    @tweet = @tweetget_tagged
+    @tweet.add_tags
 
     respond_to do |format|
       if @tweet.save
