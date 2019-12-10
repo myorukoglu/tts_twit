@@ -15,10 +15,8 @@
       <% end %>
     <% end %>
 </p>
-
-<% @user.tweets.each do |tweet| %>
-    <div>
-        <p>@<%= @user.username %></p>
-	<p><%= tweet.message.html_safe %></p>
-    </div>
-<% end %>
+<div class="contain" style="padding:10px">
+    <%  @user.tweets.each do |cat_in_the_hat| %>
+        <%= render partial: 'layouts/tweet', locals: {tweet: cat_in_the_hat} %>	
+    <% end %>
+</div>
